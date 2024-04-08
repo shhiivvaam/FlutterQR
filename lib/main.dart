@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qr_code_generator/generate_qr_code.dart';
+import 'package:qr_code_generator/scan_qr_code.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,9 +44,26 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             ElevatedButton(
               onPressed: () {
-                setState(() {});
+                setState(() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ScanQRCode()));
+                });
               },
               child: const Text('Scan QR Code'),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GenerateQRCode()));
+                });
+              },
+              child: const Text('Generate QR'),
             ),
           ],
         ),
